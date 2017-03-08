@@ -1,0 +1,23 @@
+﻿@model List<DisplayWebSite.Data.Artist>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>お気に入りアーティスト一覧</h2>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>名前</th>
+    </tr>
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@data.TowerId</td>
+            <td>@Html.ActionLink(@data.Name, "Index", "Product", new { artistName = @data.Name }, null)</td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("お気に入りのアーティストの追加はこちら", "Create", "Artist")
+

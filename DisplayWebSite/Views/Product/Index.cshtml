@@ -1,0 +1,46 @@
+﻿@model List<DisplayWebSite.Data.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ViewBag.artistName の作品一覧</h2>
+
+<div class="list-group">
+    <h3>テーブル形式</h3>
+    <table class="table">
+        <tr>
+            <th>タイトル</th>
+            <th>画像</th>
+            <th>画像URL</th>
+        </tr>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>@data.Title</td>
+                <td><img src="@data.ImageSrc" /></td>
+                <td>@data.ImageSrc</td>
+            </tr>
+        }
+    </table>
+
+    <hr />
+    <h3>定義リスト形式</h3>
+    <dl>
+        @foreach (var data in Model)
+        {
+            <dd>タイトル</dd><dt>@data.Title</dt>
+            <dd>画像</dd><dt><img src="@data.ImageSrc" /></dt>
+            <dd>画像URL</dd><dt > @data.ImageSrc</dt>
+        }
+    </dl>
+
+    <hr />
+    <h3>リスト形式</h3>
+    <ul>
+        @foreach (var data in Model)
+        {
+            <li>@data.Title<img src="@data.ImageSrc" /></li>
+        }
+    </ul>
+</div>
